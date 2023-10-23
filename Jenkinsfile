@@ -18,6 +18,7 @@ pipeline {
                 script {
                     sh 'pip install boto3'  // Install boto3 if not already installed
                     sh 'python3 lambda_functions_report.py'
+                    echo "Output files are stored in: ${WORKSPACE}"
                 }
             }
         }
