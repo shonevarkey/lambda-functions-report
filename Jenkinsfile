@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         AWS_CREDENTIALS = credentials('awscredentials') // Use the credentials ID you created in step 3
+        PATH = "/usr/bin/python3:$PATH"
     }
 
     stages {
@@ -16,7 +17,7 @@ pipeline {
             steps {
                 script {
                     sh 'pip install boto3'  // Install boto3 if not already installed
-                    sh 'python lambda_functions_report.py'
+                    sh 'python3 lambda_functions_report.py'
                 }
             }
         }
