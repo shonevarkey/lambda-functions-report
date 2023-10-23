@@ -4,8 +4,10 @@ import csv
 from datetime import datetime
 
 def generate_lambda_report():
+
+    aws_region = 'us-east-1'
     
-    lambda_client = boto3.client('lambda')
+    lambda_client = boto3.client('lambda', region_name=aws_region)
 
     sts_client = boto3.client('sts')
     account_id = sts_client.get_caller_identity()['Account']
